@@ -45,9 +45,9 @@ class TableRow extends Component {
             <div className="title">
               <h4>{repo.name}</h4>
             </div>
-            <div className="select-repo">
+            {/* <div className="select-repo">
               <button>{labels.selectBtn}</button>
-            </div>
+            </div> */}
           </div>
         </li>
       );

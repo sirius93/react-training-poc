@@ -21,7 +21,7 @@ class Main extends Component {
   render() {
     return (
       <Fragment>
-        <h1 className="header-title">{labels.homepageHeader}</h1>
+        <a href="/"><h1 className="header-title">{labels.homepageHeader}</h1></a>
         <BrowserRouter>
           <Switch>
             <Route
