@@ -3,13 +3,7 @@ import './App.css';
 import { createStore } from "redux";
 import {ajaxCall} from './Utils/service';
 import store from './store';
-
-const initialState = {
-  userData : [],
-  repos : [],
-  formData : ''
-};
-// const store = createStore(reducer, initialState);
+import {getUserData} from './actions/index';
 
 class App extends Component { 
   constructor(props){
@@ -23,14 +17,14 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);  
   }
 baseUrl = "https://api.github.com";
-getUserData = username => {
-  ajaxCall(`${this.baseUrl}/users/${username}`).then(
-    data => {
-      this.setState(this.state.userData = data)
-      this.getRepos(data.repos_url)
-    }
-  )
-}
+// getUserData = username => {
+//   ajaxCall(`${this.baseUrl}/users/${username}`).then(
+//     data => {
+//       this.setState(this.state.userData = data)
+//       this.getRepos(data.repos_url)
+//     }
+//   )
+// }
 getRepos= url => {
   ajaxCall(`${url}`).then(
     data => {
@@ -41,7 +35,9 @@ getRepos= url => {
 }
 handleSubmit = event => {
   event.preventDefault();
-  this.getUserData(this.state.formData);
+  let formData = this.state.formData;
+  getUserData(formData)
+  console.log(store.getState())
 }
 handleChange = event => {
   event.preventDefault();
