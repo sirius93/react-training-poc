@@ -1,6 +1,4 @@
-import config from "../../public/config.json";
-import userRepos from "../reducers/repo";
-import messages from "../../public/messages.json";
+import config from "../configs/config";
 
 export const getGithubUserRepo = (user, props) => {
   if (user) {

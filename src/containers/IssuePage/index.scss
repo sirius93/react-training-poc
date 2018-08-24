@@ -1,0 +1,39 @@
+.issue-detail-wrapper {
+  width: 60%;
+  margin: 40px auto;
+  hr {
+    margin: 20px 0;
+  }
+  .info-header {
+    padding: 10px 0;
+    .issue-titile {
+      font-weight: 600;
+      font-size: 25px;
+      padding-right: 10px;
+    }
+    .issue-num {
+      font-size: 30px;
+      font-weight: 300;
+      color: #a3aab1;
+    }
+  }
+  .info-desc {
+    .issue-status {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 4px 10px 5px;
+      color: #fff;
+      text-align: center;
+      background-color: #2cbe4e;
+      border-radius: 3px;
+      margin-right: 10px;
+    }
+    .issue-details {
+      display: inline-block;
+      color: #586069;
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+}

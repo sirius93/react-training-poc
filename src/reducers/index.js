@@ -1,7 +1,7 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 import userRepos from "./repo";
 import repoIssues from "./issues";
-import issueDetail from "./issueDetails";
+import issueDetail from "./issue-detail";
 
 export default combineReducers({
   userRepos,

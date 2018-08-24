@@ -1,0 +1,11 @@
+.table-row {
+  cursor: pointer;
+  .table-row-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  h4 {
+    color: #3883d8;
+  }
+}
