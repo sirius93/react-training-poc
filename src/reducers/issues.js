@@ -1,4 +1,4 @@
-import config from "../../public/config.json";
+import config from "../configs/config.json";
 
 const repoIssues = (state = [], action) => {
   switch (action.type) {
