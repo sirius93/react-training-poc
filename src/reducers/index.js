@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
+import userRepos from "./repo";
+import repoIssues from "./issues";
+import issueDetail from "./issue-detail";
 
-import {userDataReducer} from './requestProfileData';
-
-const rootReducer = combineReducers({
-    userDataReducer : userDataReducer
-})
-
-export default rootReducer;
+export default combineReducers({
+  userRepos,
+  repoIssues,
+  issueDetail
+});
