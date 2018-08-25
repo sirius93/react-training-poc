@@ -47,3 +47,10 @@ export const fetchIssueError = (error, props) => {
     error
   });
 };
+
+export const getCommentsSuccess = (comments, props) => {
+  props.dispatch({
+    type: "FETCH_COMMENTS_SUCCESS",
+    comments
+  });
+};

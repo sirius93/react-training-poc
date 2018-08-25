@@ -53,11 +53,12 @@ class Main extends Component {
 }
 
 function mapStateToProps(store) {
-  console.log(store);
+  console.log(store.CommentsData);
   return {
     repos: store.userRepos,
     issues: store.repoIssues,
-    issueDetail: store.issueDetail
+    issueDetail: store.issueDetail,
+    comments: store.CommentsData
   };
 }
 

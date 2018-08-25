@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router";
-
+import Comments from "../../components/Comments/index";
 import config from "../../configs/config.json";
 import messages from "../../configs/messages.json";
 import * as actions from "../../actions/";
@@ -23,6 +23,12 @@ class IssuePage extends Component {
         })
         .then(res => {
           actions.fetchIssueSuccess(res, this.props);
+          fetch(
+            `${res.comments_url}`
+          ).then(res=>res.json())
+           .then(
+             res => actions.getCommentsSuccess(res,this.props)
+           )
         })
         .catch(error => {
           actions.fetchIssueError(error, this.props);
@@ -34,24 +40,32 @@ class IssuePage extends Component {
     const detail = this.props.issueDetail
       ? this.props.issueDetail.detail
       : null;
+    const comments = this.props.comments
+      ? this.props.comments.comments
+      :null;
     return detail ? (
-      <section className="issue-detail-wrapper">
-        <div className="info-header">
-          <span className="issue-titile">{detail.title}</span>
-          <span className="issue-num">#{detail.number}</span>
-        </div>
-        <div className="info-desc">
-          <div className="issue-status">
-            <span className="icon status open" />
-            {detail.state}
+      <Fragment>
+        <section className="issue-detail-wrapper">
+          <div className="info-header">
+            <span className="issue-titile">{detail.title}</span>
+            <span className="issue-num">#{detail.number}</span>
           </div>
-          <div className="issue-details">
-            <strong>{detail.user.login}</strong> opened this issue on{" "}
-            {formatDate(detail.created_at)} - {detail.comments} comments
+          <div className="info-desc">
+            <div className="issue-status">
+              <span className="icon status open" />
+              {detail.state}
+            </div>
+            <div className="issue-details">
+              <strong>{detail.user.login}</strong> opened this issue on{" "}
+              {formatDate(detail.created_at)} - {detail.comments} comments
+            </div>
           </div>
-        </div>
-        <hr />
-      </section>
+          <hr />
+        </section>
+        <section>
+          <Comments params={comments}/>
+        </section>
+      </Fragment>
     ) : (
       ""
     );
