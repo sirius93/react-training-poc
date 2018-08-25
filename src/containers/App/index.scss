@@ -56,11 +56,11 @@ button {
 
   &.primary {
     color: #fff;
-    background-color: #28a745;
-    background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);
+    background-color: #0366d6;;
+    background-image: linear-gradient(-180deg, #0366d6 0%, #0366c9 90%);
     &:hover {
-      background-color: #269f42;
-      background-image: linear-gradient(-180deg, #2fcb53 0%, #269f42 90%);
+      background-color: #0366d6;;
+      background-image: linear-gradient(-180deg, #0366d6 0%, #0366c9 90%);
       background-position: -.5em;
       border-color: rgba(27,31,35,0.5);
     }
