@@ -21,25 +21,25 @@ class Main extends Component {
   render() {
     return (
       <Fragment>
-        <a href="/"><h1 className="header-title">{labels.homepageHeader}</h1></a>
+        <a href="/react-training-poc/"><h1 className="header-title">{labels.homepageHeader}</h1></a>
         <BrowserRouter>
           <Switch>
             <Route
               exact
-              path="/"
+              path="/react-training-poc/"
               render={props => (
                 <HomePage params={props.match.params} {...this.props} />
               )}
             />
             <Route
               exact
-              path="/:gituser/:gitrepo"
+              path="/react-training-poc/:gituser/:gitrepo"
               render={props => (
                 <ListPage params={props.match.params} {...this.props} />
               )}
             />
             <Route
-              path="/:gituser/:gitrepo/issues/:issueid"
+              path="/react-training-poc/:gituser/:gitrepo/issues/:issueid"
               render={props => (
                 <IssuePage params={props.match.params} {...this.props} />
               )}

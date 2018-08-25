@@ -20,7 +20,7 @@ class IssueRow extends Component {
     // console.log("route: ", route);
     const { gituser, gitrepo } = this.props.params;
     this.setState({
-      redirect: `/${gituser}/${gitrepo}/issues/${issueid}`
+      redirect: `/react-training-poc/${gituser}/${gitrepo}/issues/${issueid}`
     });
   }
 

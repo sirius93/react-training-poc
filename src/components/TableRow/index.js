@@ -18,7 +18,7 @@ class TableRow extends Component {
   selectRepo(route) {
     // console.log("route: ", route);
     this.setState({
-      redirect: `/${route}`
+      redirect: `/react-training-poc/${route}`
     });
   }
 
