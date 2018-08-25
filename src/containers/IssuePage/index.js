@@ -58,7 +58,7 @@ class IssuePage extends Component {
               {formatDate(detail.created_at)} - {detail.comments} comments
             </div>
           </div>
-          <Comments params={comments}/>
+          <Comments params={this.props}/>
           <hr />
         </section>
       </Fragment>
