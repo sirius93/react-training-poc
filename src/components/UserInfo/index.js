@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router";
-
-import messages from "../../configs/messages.json";
-import labels from "../../configs/labels.json";
 import "./index.css";
 
 class UserInfo extends Component {

@@ -4,6 +4,15 @@
     border-radius: 10px;
     margin-bottom: 20px;
     padding: 10px;
+    &::after{
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 16px;
+        background-color: lightgray;
+        margin-top: 13px;
+        margin-left: 15px;
+    }
     }
     &-user{
         border-bottom: 1px solid gray;
@@ -12,4 +21,8 @@
         background-color: lightgray;
         border-radius: 10px 10px 0px 0px;
     }
+}
+.comments-container{
+    width: 90%;
+    margin: 10px 40px;
 }

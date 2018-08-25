@@ -1,9 +1,7 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router";
 import Paginate from "react-paginate";
 
 import config from "../../configs/config.json";
-import messages from "../../configs/messages.json";
 import IssueRow from "../../components/IssueRow/";
 import IssueHeader from "../../components/IssueHeader/";
 import UserInfo from "../../components/UserInfo/";

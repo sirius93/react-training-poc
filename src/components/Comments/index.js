@@ -1,9 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router";
-import { Redirect } from "react-router-dom";
-
-import messages from "../../configs/messages.json";
-import labels from "../../configs/labels.json";
 import "./index.css";
 import {formatDate} from '../../utils/dateUtils';
 
@@ -24,8 +19,8 @@ class Comments extends Component {
     ):'';
       return (
           <div>
-              <section className="issue-detail-wrapper">
-                <h2 className="issue-titile">
+              <section className="comments-container">
+                <h2 className="comment-titile">
                     Comments :
                 </h2>
                 {CommentsHTML}

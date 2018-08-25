@@ -1,5 +1,3 @@
-import config from "../configs/config.json";
-
 const issueDetail = (state = [], action) => {
   switch (action.type) {
     case "FETCH_ISSUE_SUCCESS":

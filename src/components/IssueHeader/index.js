@@ -1,9 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router";
-
-import messages from "../../configs/messages.json";
-import labels from "../../configs/labels.json";
-import { formatDate } from "../../utils/dateUtils";
 import "./index.css";
 
 class IssueHeader extends Component {

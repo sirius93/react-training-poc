@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 // import { browserHistory, hashHistory } from "react-router";
-import { render } from "react-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 

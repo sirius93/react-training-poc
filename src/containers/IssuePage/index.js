@@ -1,8 +1,6 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router";
 import Comments from "../../components/Comments/index";
 import config from "../../configs/config.json";
-import messages from "../../configs/messages.json";
 import * as actions from "../../actions/";
 import { formatDate } from "../../utils/dateUtils";
 import "./index.css";
@@ -60,10 +58,8 @@ class IssuePage extends Component {
               {formatDate(detail.created_at)} - {detail.comments} comments
             </div>
           </div>
-          <hr />
-        </section>
-        <section>
           <Comments params={comments}/>
+          <hr />
         </section>
       </Fragment>
     ) : (
