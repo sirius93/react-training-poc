@@ -1,6 +1,9 @@
 .issue-detail-wrapper {
   width: 60%;
   margin: 40px auto;
+  @media only screen and (min-width : 320px) and (max-width : 991px) {
+    width: 95%;
+  }
   hr {
     margin: 20px 0;
   }

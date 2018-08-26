@@ -21,10 +21,17 @@
         background-color: lightgray;
         border-radius: 10px 10px 0px 0px;
     }
+    &-body{
+        word-break: break-all;
+    }
 }
 .comments-container{
     width: 90%;
     margin: 10px 40px;
+    @media only screen and (min-width : 320px) and (max-width : 991px) {
+        width: 95%;
+        margin: 10px;
+    }
 }
 .githubform {
     input[type="text"] {
@@ -40,6 +47,10 @@
       width: 80%;
       background: #FFF;
       margin-bottom: 10px;
+      @media only screen and (min-width : 320px) and (max-width : 991px) {
+        width: 95%;
+        margin: 10px;
+    }
     }
     input[type="submit"]{
       float: left;
@@ -52,6 +63,13 @@
       margin-top: -35px;
       background-color: #0366d6;
       color: white;
+      @media only screen and (min-width : 320px) and (max-width : 991px) {
+        width: 95%;
+        margin: 10px;
+        display: block;
+        min-height: 40px;
+        font-size: 15px;
+    }
     }
     &::after {
       content: "";
