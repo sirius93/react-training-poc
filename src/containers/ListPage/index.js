@@ -11,13 +11,12 @@ import "./index.css";
 class ListPage extends Component {
   constructor(props) {
     super(props);
-    this.currentPage = 1;
   }
 
   componentDidMount() {
     const { gituser, gitrepo } = this.props.params;
     if (gituser && gitrepo) {
-      fetch(`${config.GIT_REPO_ISSUE_URL}/${gituser}/${gitrepo}/issues`)
+      fetch(`${config.GIT_REPO_ISSUE_URL}/${gituser}/${gitrepo}/issues?per_page=100&type=owner`)
         .then(res => {
           return res.json();
         })
@@ -29,7 +28,15 @@ class ListPage extends Component {
         });
     }
   }
-
+  handlePageChange = ({ selected }) => {
+    let currentPage = selected+1;
+    const newItems = this.props.issues.issues.slice(
+      selected * config.ISSUES_ON_PAGE,
+      currentPage * config.ISSUES_ON_PAGE
+    );
+    actions.changePage(newItems, this.props);
+    console.log("new Items: ", newItems);
+  };
   render() {
     const pageCount =
       this.props.issues && this.props.issues.issues
@@ -54,9 +61,9 @@ class ListPage extends Component {
             this.props.issues.items &&
             this.props.issues.items.length ? (
               <Paginate
-                forcePage={this.currentPage}
+                forcePage={0}
                 pageCount={pageCount}
-                marginPagesDisplayed={2}
+                marginPagesDisplayed={1}
                 pageRangeDisplayed={5}
                 onPageChange={this.handlePageChange}
                 nextLabel="&rarr;"
@@ -70,16 +77,6 @@ class ListPage extends Component {
       </Fragment>
     );
   }
-
-  handlePageChange = ({ selected }) => {
-    this.currentPage = selected + 1;
-    const newItems = this.props.issues.issues.slice(
-      selected * config.ISSUES_ON_PAGE,
-      this.currentPage * config.ISSUES_ON_PAGE
-    );
-    actions.changePage(newItems, this.props);
-    console.log("new Items: ", newItems);
-  };
 }
 
 export default ListPage;

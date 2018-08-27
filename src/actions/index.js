@@ -2,7 +2,7 @@ import config from "../configs/config";
 
 export const getGithubUserRepo = (user, props) => {
   if (user) {
-    fetch(`${config.GIT_USER_REPO_URL}/${user}/repos`)
+    fetch(`${config.GIT_USER_REPO_URL}/${user}/repos?per_page=100&type=owner`)
       .then(resp => resp.json())
       .then(userRepos => {
         props.dispatch({ type: "GET_USER_REPOS", payload: userRepos });

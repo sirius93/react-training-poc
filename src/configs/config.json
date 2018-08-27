@@ -1,5 +1,5 @@
 {
     "GIT_USER_REPO_URL": "https://api.github.com/users",
     "GIT_REPO_ISSUE_URL": "https://api.github.com/repos",
-    "ISSUES_ON_PAGE": 5
+    "ISSUES_ON_PAGE": 10
 }
