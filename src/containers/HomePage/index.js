@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { getGithubUserRepo } from "../../actions/";
+import Paginate from "react-paginate";
 import { Link } from "react-router";
-
+import config from "../../configs/config.json";
 import TableRow from "../../components/TableRow/";
 import labels from "../../configs/labels.json";
 import "./index.css";
+import * as actions from "../../actions/";
+
 
 class HomePage extends Component {
   constructor(props) {
@@ -18,7 +21,21 @@ class HomePage extends Component {
     getGithubUserRepo(usename, this.props);
   };
 
+  handlePageChange = ({ selected }) => {
+    let currentPage = selected+1;
+    const newItems = this.props.repos.repos.slice(
+      selected * config.ISSUES_ON_PAGE,
+      currentPage * config.ISSUES_ON_PAGE
+    );
+    actions.changeRepoPage(newItems, this.props);
+    console.log("new Items: ", newItems);
+  };
+
   render() {
+    const pageCount =
+      this.props.repos && this.props.repos.repos
+        ? Math.ceil(this.props.repos.repos.length / config.ISSUES_ON_PAGE)
+        : 1;
     return (
       <div className="home-page-wrapper">
         <div className="user-repo-form">
@@ -37,12 +54,29 @@ class HomePage extends Component {
         <div className="user-repositories-list">
           <ul>
             {this.props.repos.repos || this.props.repos.message ? (
-              <TableRow {...this.props} />
+              <TableRow params={this.props.params} {...this.props} />
             ) : (
               ""
             )}
           </ul>
         </div>
+        <div className="issues__pagination">
+            {this.props.repos &&
+            this.props.repos.repos &&
+            this.props.repos.repos.length ? (
+              <Paginate
+                forcePage={0}
+                pageCount={pageCount}
+                marginPagesDisplayed={1}
+                pageRangeDisplayed={5}
+                onPageChange={this.handlePageChange}
+                nextLabel="&rarr;"
+                previousLabel="&larr;"
+              />
+            ) : (
+              ""
+            )}
+          </div>
       </div>
     );
   }

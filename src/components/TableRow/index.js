@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 
 import messages from "../../configs/messages.json";
+import labels from "../../configs/labels.json";
 import "./index.css";
 
 class TableRow extends Component {
@@ -27,12 +28,12 @@ class TableRow extends Component {
       return <div className="error-message">{this.props.repos.message}</div>;
     } else if (
       this.props.repos &&
-      this.props.repos.repos &&
-      !this.props.repos.repos.length
+      this.props.repos.items &&
+      !this.props.repos.items.length
     ) {
       return <div className="error-message norepo">{messages.norepo}</div>;
     }
-    return this.props.repos.repos.map(repo => {
+    return this.props.repos.items.map(repo => {
       return (
         <li
           className="border-bottom table-row"
@@ -43,9 +44,9 @@ class TableRow extends Component {
             <div className="title">
               <h4>{repo.name}</h4>
             </div>
-            {/* <div className="select-repo">
-              <button>{labels.selectBtn}</button>
-            </div> */}
+            <div className="select-repo">
+                <span className="icon status open issue-status">{repo.open_issues} Open Issues</span>
+            </div>
           </div>
         </li>
       );

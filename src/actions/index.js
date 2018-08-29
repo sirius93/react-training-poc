@@ -34,6 +34,13 @@ export const changePage = (payload, props) => {
   });
 };
 
+export const changeRepoPage = (payload, props) => {
+  props.dispatch({
+    type: "CHANGE_REPO_PAGE",
+    payload
+  });
+};
+
 export const fetchIssueSuccess = (issueDetail, props) => {
   props.dispatch({
     type: "FETCH_ISSUE_SUCCESS",
