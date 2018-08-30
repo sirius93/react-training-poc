@@ -22,6 +22,11 @@ const userRepos = (state = [], action) => {
         ...state,
         items: action.payload
       };
+    case "SORT_REPO_PAGE":
+      return {
+        ...state,
+        items: action.payload
+      };  
       break;
     default:
       return state;
