@@ -13,7 +13,6 @@ class HomePage extends Component {
   constructor(props) {
     super(props);
     this.githubUserName = React.createRef();
-    this.handleSort = this.handleSort.bind(this);
   }
 
   searchRepo = event => {
@@ -21,12 +20,7 @@ class HomePage extends Component {
     const usename = this.githubUserName.current.value;
     getGithubUserRepo(usename, this.props);
   };
-  handleSort = event => {
-    event.preventDefault();
-    let sortedData = this.props.repos ? this.props.repos.items.sort((a, b) => {return a.open_issues_count- b.open_issues_count}) : this.props.repos.items; 
-    console.log(sortedData)
-    actions.sortRepoPage(sortedData,this.props)
-  }
+
   handlePageChange = ({ selected }) => {
     let currentPage = selected+1;
     const newItems = this.props.repos.repos.slice(
@@ -57,9 +51,6 @@ class HomePage extends Component {
             </button>
           </form>
         </div>
-        <button type="button" className="primary" onClick={this.handleSort}>
-              sort by issue count
-        </button>
         <div className="user-repositories-list">
           <ul>
             {this.props.repos.repos || this.props.repos.message ? (

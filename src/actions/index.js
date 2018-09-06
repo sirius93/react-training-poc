@@ -41,13 +41,6 @@ export const changeRepoPage = (payload, props) => {
   });
 };
 
-export const sortRepoPage = (payload, props) => {
-  props.dispatch({
-    type: "SORT_REPO_PAGE",
-    payload
-  });
-};
-
 export const fetchIssueSuccess = (issueDetail, props) => {
   props.dispatch({
     type: "FETCH_ISSUE_SUCCESS",
