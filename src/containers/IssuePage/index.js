@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Comments from "../../components/Comments/index";
 import config from "../../configs/config.json";
+import auth from "../../configs/auth";
 import * as actions from "../../actions/";
 import { formatDate } from "../../utils/dateUtils";
 import "./index.css";
@@ -14,7 +15,7 @@ class IssuePage extends Component {
     const { gituser, gitrepo, issueid } = this.props.params;
     if (gituser && gitrepo && issueid) {
       fetch(
-        `${config.GIT_REPO_ISSUE_URL}/${gituser}/${gitrepo}/issues/${issueid}`
+        `${config.GIT_REPO_ISSUE_URL}/${gituser}/${gitrepo}/issues/${issueid}?client_id=${auth.clientId}&client_secret=${auth.secretKey}`
       )
         .then(res => {
           return res.json();
@@ -22,7 +23,7 @@ class IssuePage extends Component {
         .then(res => {
           actions.fetchIssueSuccess(res, this.props);
           fetch(
-            `${res.comments_url}`
+            `${res.comments_url}?client_id=${auth.clientId}&client_secret=${auth.secretKey}`
           ).then(res=>res.json())
            .then(
              res => actions.getCommentsSuccess(res,this.props)

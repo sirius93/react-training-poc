@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Paginate from "react-paginate";
-
+import auth from "../../configs/auth.json";
 import config from "../../configs/config.json";
 import IssueRow from "../../components/IssueRow/";
 import IssueHeader from "../../components/IssueHeader/";
@@ -16,7 +16,7 @@ class ListPage extends Component {
   componentDidMount() {
     const { gituser, gitrepo } = this.props.params;
     if (gituser && gitrepo) {
-      fetch(`${config.GIT_REPO_ISSUE_URL}/${gituser}/${gitrepo}/issues?per_page=100&type=owner`)
+      fetch(`${config.GIT_REPO_ISSUE_URL}/${gituser}/${gitrepo}/issues?per_page=100&type=owner?client_id=${auth.clientId}&client_secret=${auth.secretKey}`)
         .then(res => {
           return res.json();
         })

@@ -1,9 +1,10 @@
 import config from "../configs/config";
+import auth from "../configs/auth";
 import {ajaxCall} from "../utils/dateUtils";
 
 export const getGithubUserRepo = (user, props) => {
   if (user) {
-    ajaxCall(`${config.GIT_USER_REPO_URL}/${user}/repos?per_page=100&type=owner`)
+    ajaxCall(`${config.GIT_USER_REPO_URL}/${user}/repos?per_page=100&type=owner?client_id=${auth.clientId}&client_secret=${auth.secretKey}`)
       .then(userRepos => {
         props.dispatch({ type: "GET_USER_REPOS", payload: userRepos });
       })
